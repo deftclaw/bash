@@ -1,0 +1,8 @@
+# Search for commands used previously : 1674496868
+history_search() {
+  query="$1"
+
+  history | ag $query
+}
+
+alias hs='history_search' # Search for commands used previously

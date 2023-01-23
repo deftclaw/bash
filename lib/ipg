@@ -1,0 +1,3 @@
+# Quickly Access Global IP : 1674501215
+  echo "$(curl ifconfig.me 2> /dev/null)"
+}

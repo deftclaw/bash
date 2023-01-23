@@ -1,0 +1,7 @@
+# Print each argument of the array on its own line, use ${list[@]} or provided array : 1674502689
+alias pf='printf "%s\n"'
+function println() {
+  [[ $# == 0 ]] \
+    && pf "${list[@]}" \
+    || pf "$@"
+}

@@ -1,0 +1,6 @@
+# Restart the shell, load neofetch and reset the readline screen : 1674503063
+function restart-shell() {
+  . /etc/profile
+}
+
+alias rs='Restart-Shell' # Restart the shell, load neofetch and reset the readline screen

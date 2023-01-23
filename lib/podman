@@ -1,0 +1,35 @@
+# Podman Image list : 1674502140
+function podman-image-list() {
+  # Store an array of IMAGE IDs
+  ipod=($(podman image list -a|tail -n +2|awk '{print $3}'))
+}
+# Podman Container list : 1674501961
+function podmain-container-list() {
+  # Store an array of CONTAINER IDs
+  cpod=($(podman ps -a|tail -n +2|awk '{print $1}'))
+
+  [[ $1 ~= '-q' ]] || podman ps "$@"
+}
+# Podman Container All Remove : 1674501975
+pcar() {
+  list=($(pcl|awk '{print $1}'))
+
+  printf '%s\n' "${list[@]:1}"|xargs -I % sudo podman rm -f %
+}
+# Remove all images : 1674501988
+pira() {
+  list=($(pil|awk '{print $3}'))
+
+  printf '%s\n' "${list[@]:1}" | xargs --replace=% sudo podman image rm -f %
+}
+# Display last container, and store its id to $last : 1674502110
+podman-last() {
+  last=$(podman ps -a|tail -n 1)
+
+  echo $last
+  export last=$(echo $last|awk '{print $1}')
+}
+
+alias pcl=podman-container-list
+alias pl=podman-last
+alias pil=podman-image-list
