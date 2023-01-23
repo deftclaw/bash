@@ -1,0 +1,3 @@
+branch=/opt/asdf
+[[ -d $branch ]] && source $branch/asdf.sh && source $branch/completions/asdf.bash \
+  || return 1
