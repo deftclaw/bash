@@ -1,0 +1,10 @@
+pgdata=/usr/local/pgsql/data
+
+adduser postgres
+mkdir -vp $pgdata
+chown postgres $pgdata
+su - postgres
+/usr/bin/initdb -D /usr/local/pgsql/data
+/usr/bin/pg_ctl -D /usr/local/pgsql/data -l logfile start
+/usr/bin/createdb test
+/usr/bin/psql test
