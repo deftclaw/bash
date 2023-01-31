@@ -16,7 +16,6 @@ append_path "/usr/sbin"
 append_path "/usr/bin"
 append_path "/sbin"
 append_path "/bin"
-unset -f append_path
 
 export PATH
 export PAGER=less
@@ -47,3 +46,4 @@ for script in /etc/profile.d/*.sh ; do
   fi
 done
 unset script
+unset -f append_path
